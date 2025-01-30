@@ -3,7 +3,9 @@ run-name: Running - ${{github.event_name}}
 on:
   push:
     branches-ignore:
+      - develop
       - main
+      - 'release/**'
 
 jobs:
   on-push:

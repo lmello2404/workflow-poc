@@ -2,10 +2,8 @@ name: Github actions - Push Template Basic
 run-name: Running - ${{github.event_name}}
 on:
   push:
-    branches:
-      - develop
+    branches-ignore:
       - main
-      - 'release/**'
 
 jobs:
   on-push:
