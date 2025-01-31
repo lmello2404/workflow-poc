@@ -1,17 +1,8 @@
 name: Github actions - Pull Request Template Basic
 run-name: Running - ${{github.event_name}}
-on: 
-  pull_request:
-    types:
-      #- opened
-      #- reopened
-      - closed
-    branches:
-      - main
-    paths:
-      - '**.txt'
+on: [workflow_dispatch]
 jobs:
-  on-push:
+  on-workflow_dispatch:
     runs-on: ubuntu-latest
     steps:
       - name: Comentário
