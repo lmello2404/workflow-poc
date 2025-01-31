@@ -1,9 +1,6 @@
 name: Github actions - Push Template Basic
 run-name: Running - ${{github.event_name}}
-on:
-  push:
-    paths:'**.txt'
-
+on: [pull_request]
 jobs:
   on-push:
     runs-on: ubuntu-latest
