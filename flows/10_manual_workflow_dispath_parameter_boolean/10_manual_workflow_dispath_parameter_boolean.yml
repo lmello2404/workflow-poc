@@ -1,14 +1,11 @@
 name: Github actions - Pull Request Template Basic
 run-name: Running - ${{github.event_name}}
 on:
-  schedule:
-    # rodare 9 e 25 da manha de segunda a sexta
-    - cron: '25 12 * * 1-5'
-
-    # rodar todo minuto 2 e todo minuto 10 as 8 da manha e as 10 da manha
-    # 8:02 / 08:10 e 10:02 / 10:10
-    - cron: '2,10 11,13 * * *'
-
+  workflow_dispatch:
+    inputs:
+      severidade:
+        description: funcionalidade crítica?
+        type: boolean
 jobs:
   on-workflow_dispatch:
     runs-on: ubuntu-latest
