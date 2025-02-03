@@ -3,13 +3,15 @@ run-name: Running - ${{github.event_name}}
 on:
   workflow_dispatch:
     inputs:
-      severidade:
-        description: funcionalidade crítica?
-        type: boolean
+      browser:
+        description: Selecione Browser
+        type: string
+        default: 'firefox'
+        required: true
 jobs:
   on-workflow_dispatch:
     runs-on: ubuntu-latest
     steps:
       - name: Comentário
         run: |
-          echo "${{inputs.severidade}}"      
+          echo "${{inputs.browser}}"      
