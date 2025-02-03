@@ -3,11 +3,11 @@ run-name: Running - ${{github.event_name}}
 on:
   schedule:
     # rodare 9 e 25 da manha de segunda a sexta
-    - cron: '31 12 * * 1-5'
+    - cron: '17 10 * * 1-5'
 
     # rodar todo minuto 2 e todo minuto 10 as 8 da manha e as 10 da manha
     # 8:02 / 08:10 e 10:02 / 10:10
-    - cron: '2,10 11,13 * * *'
+    - cron: '5,10 10,11 * * *'
 
 jobs:
   on-workflow_dispatch:
