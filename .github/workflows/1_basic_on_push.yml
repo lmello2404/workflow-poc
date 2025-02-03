@@ -3,14 +3,10 @@ run-name: Running - ${{github.event_name}}
 on:
   workflow_dispatch:
     inputs:
-      tags:
-        description: Selecione a tag
-        type: choice
-        options:
-          - tag_1
-          - tag_2
-          - tag_3
-        default: 'tag_1'
+      browser:
+        description: Selecione Browser
+        type: string
+        default: 'firefox'
         required: true
 jobs:
   on-workflow_dispatch:
@@ -18,4 +14,4 @@ jobs:
     steps:
       - name: Comentário
         run: |
-          echo "${{inputs.tags}}"      
+          echo "${{inputs.browser}}"      
