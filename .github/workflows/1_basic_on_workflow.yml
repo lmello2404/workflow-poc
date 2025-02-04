@@ -1,0 +1,14 @@
+name: GitHub Actions - Cron Job Template
+run-name: Running - ${{ github.event_name }}
+on:
+  workflow_run:
+    workflows: [GitHub Actions - Trigger 1]
+
+
+jobs:
+  on-push:
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Comentário
+        run: |
+          echo "Comentário Cron Job"
