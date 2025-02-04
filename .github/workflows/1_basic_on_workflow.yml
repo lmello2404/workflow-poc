@@ -1,13 +1,6 @@
 name: GitHub Actions - Cron Job Template
 run-name: Running - ${{ github.event_name }}
-on:
-  workflow_run:
-    workflows: [GitHub Actions - Trigger 1]
-    types: [completed]
-    # types: [requested]
-    # types: [in_progress]
-    # types: [completed,requested, in_progress]
-
+on: [push, workflow_dispatch]
 
 jobs:
   on-push:
@@ -15,4 +8,4 @@ jobs:
     steps:
       - name: Comentário
         run: |
-          echo "Comentário Cron Job"
+          echo "${{ vars.var_test}}"
