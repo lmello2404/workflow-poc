@@ -8,8 +8,10 @@ jobs:
     strategy:
       matrix:
         navegador: [Chrome,firefox,webkit]
+        tag: [tag_1,tag_2,tag_3]
       fail-fast: false
     steps:
       - name: Comentario
         run: |
           echo ${{matrix.navegador}}
+          echo ${{matrix.tag}}
