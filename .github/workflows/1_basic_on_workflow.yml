@@ -3,19 +3,14 @@ run-name: Running - ${{ github.event_name }}
 on: [push, workflow_dispatch]
 
 jobs:
-  on-push_only: 
-    if: ${{ github.event_name == 'push' }}
+  job_1_erro: 
     runs-on: ubuntu-20.04
     steps:
       - name: Comentário
         run: |
-          echo ${{ github.event_name }}
+          echo Comentario antes do erro
+          exit 1
+      - name: Comentário
+        run: |
+          echo Comentario após o erro
 
-     
-  on-workflow_dispatch: 
-    if: ${{ github.event_name == 'workflow_dispatch' }}
-    runs-on: ubuntu-20.04
-    steps:
-      - name: Comentário
-        run: |
-          echo ${{ github.event_name }}           
