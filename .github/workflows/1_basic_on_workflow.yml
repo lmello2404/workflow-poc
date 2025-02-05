@@ -12,5 +12,17 @@ jobs:
           exit 1
       - name: Comentário
         run: |
-          echo Comentario após o erro
+          echo Comentario após o erro 
+
+  job_2_always_exec: 
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Comentário
+        run: |
+          echo Comentario antes do erro
+          exit 1
+      - name: Comentário
+        if: always()
+        run: |
+          echo Comentario após o erro           
 
