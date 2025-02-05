@@ -21,8 +21,23 @@ jobs:
         run: |
           echo Comentario antes do erro
           exit 1
+          
       - name: Comentário
         if: always()
         run: |
-          echo Comentario após o erro           
+          echo Comentario após o erro  
+          
+  job_3_continue_on_error: 
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Comentário
+        run: |
+          echo Comentario antes do erro
+          exit 1
+        continue-on-error: true
+
+      - name: Comentário
+        if: always()
+        run: |
+          echo Comentario após o erro             
 
