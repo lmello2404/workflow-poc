@@ -1,0 +1,27 @@
+name: GitHub Actions - Cron Job Template
+run-name: Running - ${{ github.event_name }}
+on: [push, workflow_dispatch]
+
+jobs:
+  test_unit:
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Comentário
+        run: |
+          echo "Execução Setup"
+
+  test_api:
+    needs: test_unit
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Comentário
+        run: |
+          echo "Execução Test"
+
+  test_ui:
+    needs: [test_api,test_api]
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Comentário
+        run: |
+          echo "Execução Test integration"                         

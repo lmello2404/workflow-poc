@@ -3,25 +3,35 @@ run-name: Running - ${{ github.event_name }}
 on: [push, workflow_dispatch]
 
 jobs:
-  test_unit:
+  exec_build_and_unit_test:
     runs-on: ubuntu-20.04
     steps:
       - name: Comentário
         run: |
-          echo "Execução Setup"
+          echo "Execução Build e Testes unitarios"
 
-  test_api:
-    needs: test_unit
+
+  build_image:
+    needs: exec_build_and_unit_test
     runs-on: ubuntu-20.04
     steps:
       - name: Comentário
         run: |
-          echo "Execução Test"
+          echo "Buildar imagem"          
+          
+  deploy:
+    needs: [exec_build_and_unit_test,build_image]
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Comentário
+        run: |
+          echo "Deploy da aplicação" 
+          
 
   test_ui:
-    needs: [test_api,test_api]
+    needs: [deploy]
     runs-on: ubuntu-20.04
     steps:
       - name: Comentário
         run: |
-          echo "Execução Test integration"                         
+          echo "Execução Test integration"
